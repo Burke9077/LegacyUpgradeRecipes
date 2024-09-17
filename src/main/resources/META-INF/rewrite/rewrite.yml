@@ -23,10 +23,32 @@
 # You can also have multiple files in `src/main/resources/META-INF/rewrite`, each containing one or more recipes.
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: com.yourorg.UseOpenRewriteNullable
-displayName: Prefer OpenRewrite Nullable
-description: Replaces JetBrains Nullable with OpenRewrite Nullable.
+name: com.burke9077.openrewrite.MavenUpdateJavaVersion
+displayName: Update Maven Java Version to 1.8
+description: This recipe updates the maven-compiler-plugin source and target versions from 1.6 to 1.8 if currently set to 1.6.
+tags:
+  - maven
+  - java
+  - migration
+preconditions:
+  - org.openrewrite.maven.search.FindPluginConfiguration:
+      groupId: org.apache.maven.plugins
+      artifactId: maven-compiler-plugin
+      key: configuration/source
+      value: "1.6"
+  - org.openrewrite.maven.search.FindPluginConfiguration:
+      groupId: org.apache.maven.plugins
+      artifactId: maven-compiler-plugin
+      key: configuration/target
+      value: "1.6"
 recipeList:
-  - org.openrewrite.java.ChangeType:
-      oldFullyQualifiedTypeName: org.jetbrains.annotations.Nullable
-      newFullyQualifiedTypeName: org.openrewrite.internal.lang.Nullable
+  - org.openrewrite.maven.ChangePluginConfiguration:
+      groupId: org.apache.maven.plugins
+      artifactId: maven-compiler-plugin
+      key: configuration/source
+      value: "1.8"
+  - org.openrewrite.maven.ChangePluginConfiguration:
+      groupId: org.apache.maven.plugins
+      artifactId: maven-compiler-plugin
+      key: configuration/target
+      value: "1.8"

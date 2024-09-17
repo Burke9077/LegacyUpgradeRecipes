@@ -17,8 +17,8 @@ plugins {
 }
 
 // Set as appropriate for your organization
-group = "com.yourorg"
-description = "Rewrite recipes."
+group = "com.burke9077.openrewrite"
+description = "Rewrite recipes for legacy software modernization."
 
 dependencies {
     // The bom version can also be set to a specific version

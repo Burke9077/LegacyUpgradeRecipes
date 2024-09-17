@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.yourorg;
+package com.burke9077.openrewrite;
 
-import com.yourorg.table.ClassHierarchyReport;
+import com.burke9077.openrewrite.table.ClassHierarchyReport;
 import org.junit.jupiter.api.Test;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
