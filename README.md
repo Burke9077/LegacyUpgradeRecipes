@@ -39,14 +39,14 @@ In the pom.xml of a different project you wish to test your recipe out in, make 
                 <version>RELEASE</version>
                 <configuration>
                     <activeRecipes>
-                        <recipe>com.burke9077.openrewrite.NoGuavaListsNewArrayList</recipe>
+                        <recipe>com.burke9077.openrewrite.MavenUpdateJavaVersion</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>com.burke9077.openrewrite</groupId>
-                        <artifactId>rewrite-recipe-starter</artifactId>
-                        <version>0.1.0-SNAPSHOT</version>
+                        <artifactId>legacy-upgrade-recipes</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -74,7 +74,7 @@ dependencies {
 }
 
 rewrite {
-    activeRecipe("com.burke9077.openrewrite.NoGuavaListsNewArrayList")
+    activeRecipe("com.burke9077.openrewrite.MavenUpdateJavaVersion")
 }
 ```
 
