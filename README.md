@@ -1,40 +1,10 @@
-# Rewrite recipe starter
+# Legacy upgrade recipes
 
-This repository serves as a template for building your own recipe JARs and publishing them to a repository where they can be applied on [app.moderne.io](https://app.moderne.io) against all the public OSS code that is included there.
+Custom rewrite recipes for upgrading old legacy software.
 
-We've provided a sample recipe (NoGuavaListsNewArray) and a sample test class. Both of these exist as placeholders, and they should be replaced by whatever recipe you are interested in writing.
+## Recipes
 
-To begin, fork this repository and customize it by:
-
-1. Changing the root project name in `settings.gradle.kts`.
-2. Changing the `group` in `build.gradle.kts`.
-3. Changing the package structure from `com.burke9077.openrewrite` to whatever you want.
-
-## Getting started
-
-Familiarize yourself with the [OpenRewrite documentation](https://docs.openrewrite.org/), in particular the [concepts & explanations](https://docs.openrewrite.org/concepts-explanations) op topics like the [lossless semantic trees](https://docs.openrewrite.org/concepts-explanations/lossless-semantic-trees), [recipes](https://docs.openrewrite.org/concepts-explanations/recipes) and [visitors](https://docs.openrewrite.org/concepts-explanations/visitors).
-
-You might be interested to watch some of the [videos available on OpenRewrite and Moderne](https://www.youtube.com/@moderne-and-openrewrite).
-
-Once you want to dive into the code there is a [comprehensive getting started guide](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment)
-available in the OpenRewrite docs that provides more details than the below README.
-
-## Reference recipes
-
-* [META-INF/rewrite/stringutils.yml](./src/main/resources/META-INF/rewrite/stringutils.yml) - A declarative YAML recipe that replaces usages of `org.springframework.util.StringUtils` with `org.apache.commons.lang3.StringUtils`.
-  * [UseApacheStringUtilsTest](./src/test/java/com/yourorg/UseApacheStringUtilsTest.java) - A test class for the `com.burke9077.openrewrite.UseApacheStringUtils` recipe.
-* [NoGuavaListsNewArrayList.java](./src/main/java/com/yourorg/NoGuavaListsNewArrayList.java) - An imperative Java recipe that replaces usages of `com.google.common.collect.Lists` with `new ArrayList<>()`.
-  * [NoGuavaListsNewArrayListTest.java](./src/test/java/com/yourorg/NoGuavaListsNewArrayListTest.java) - A test class for the `NoGuavaListsNewArrayList` recipe.
-* [SimplifyTernary](./src/main/java/com/yourorg/SimplifyTernary.java) - An Refaster style recipe that simplifies ternary expressions.
-  * [SimplifyTernaryTest](./src/test/java/com/yourorg/SimplifyTernaryTest.java) - A test class for the `SimplifyTernary` recipe.
-* [AssertEqualsToAssertThat](./src/main/java/com/yourorg/AssertEqualsToAssertThat.java) - An imperative Java recipe that replaces JUnit's `assertEquals` with AssertJ's `assertThat`, to show how to handle classpath dependencies.
-  * [AssertEqualsToAssertThatTest](./src/test/java/com/yourorg/AssertEqualsToAssertThatTest.java) - A test class for the `AssertEqualsToAssertThat` recipe.
-* [AppendToReleaseNotes](./src/main/java/com/yourorg/AppendToReleaseNotes.java) - A ScanningRecipe that appends a message to the release notes of a project.
-  * [AppendToReleaseNotesTest](./src/test/java/com/yourorg/AppendToReleaseNotesTest.java) - A test class for the `AppendToReleaseNotes` recipe.
-* [ClassHierarchy](./src/main/java/com/yourorg/ClassHierarchy.java) - A recipe that demonstrates how to produce a data table on the class hierarchy of a project.
-  * [ClassHierarchyTest](./src/test/java/com/yourorg/ClassHierarchyTest.java) - A test class for the `ClassHierarchy` recipe.
-* [UpdateConcoursePipeline](./src/main/java/com/yourorg/UpdateConcoursePipeline.java) - A recipe that demonstrates how to update a Concourse pipeline, as an example of operating on Yaml files.
-  * [UpdateConcoursePipelineTest](./src/test/java/com/yourorg/UpdateConcoursePipelineTest.java) - A test class for the `UpdateConcoursePipeline` recipe.
+* [META-INF/rewrite/mavencompile6to8.yml](./src/main/resources/META-INF/rewrite/mavencompile6to8.yml) - A declarative YAML recipe that replaces version 1.6 build source and build targets with 1.8 for upgrading Java applications from 6 to 8`.
 
 ## Local Publishing for Testing
 
